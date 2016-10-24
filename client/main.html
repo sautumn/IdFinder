@@ -1,0 +1,29 @@
+<head>
+  <title>IdFinder</title>
+</head>
+
+<body>
+  <h3>Enter latitude and longitude to find nearby locations and the location ID from instagram.</h3>
+
+  {{> latlong}}
+  {{> display}}
+
+</body>
+
+
+
+<template name="latlong">
+  Latitude:<br>
+  <input type="text" name="lat" id="latitude">
+  <br>
+  Longitude:<br>
+  <input type="text" name="long" id="longitude">
+  <br><br>
+  <button>Click</button>
+  <br>
+</template>
+
+<template name ="display">
+  <ul id ="list">{{getObj}}</ul>
+</template>
+
