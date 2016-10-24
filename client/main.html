@@ -1,29 +1,28 @@
 <head>
   <title>IdFinder</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 </head>
 
 <body>
-  <h3>Enter latitude and longitude to find nearby locations and the location ID from instagram.</h3>
 
-  {{> latlong}}
-  {{> display}}
-
+  <div class="container">
+    {{> googlemaps}}
+    {{> display}}
+  </div>
 </body>
 
 
-
-<template name="latlong">
-  Latitude:<br>
-  <input type="text" name="lat" id="latitude">
-  <br>
-  Longitude:<br>
-  <input type="text" name="long" id="longitude">
-  <br><br>
-  <button>Click</button>
-  <br>
+<template name ="display">
+<div class="container">
+  <ul id ="list">{{getObj}}</ul>
+</div>
 </template>
 
-<template name ="display">
-  <ul id ="list">{{getObj}}</ul>
+<template name="googlemaps">
+<div class="container">
+  <h3>Type in a location to popular nearby instagram posts</h3>
+  <input type="text" id="my-address" class="col-md-9">
+  <button id="getCords" class="col-md-3">Find Places</button>
+</div>
 </template>
 
