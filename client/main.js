@@ -22,12 +22,17 @@ var request = function() { return $.get('https://api.instagram.com/v1/locations/
 
 //takes in ig api call get result and goes over the array items and appends them to the page
 var getObj = function(input) {
+  //if anything exists, clear it.
+  $('#list').empty();
   var result = '';
   for (var i = 0, length = input.length; i < length; i++) {
-    //build list of nearby places from instagram api
-    result = result.concat('<li>' + input[i]['name'] + ' : ' + input[i]['id'] + ' : ' + '<a href="https://www.instagram.com/explore/locations/' + input[i]['id'] + '">Instagram Link</a>' + '</li>');
+    //build html string of nearby places from instagram api
+    //skip id values of 0, no pictures are tagged there
+    if (input[i]['id'] !== '0'){
+      result = result.concat('<li>' + input[i]['name'] + ' : ' + input[i]['id'] + ' : ' + '<a href="https://www.instagram.com/explore/locations/' + input[i]['id'] + '">Instagram Link</a>' + '</li>');
+    }  
   }
-  //add result from instagram api to page, id - list
+  //add result from instagram api to html, id - list
   $('#list').append(result);
 }
 
