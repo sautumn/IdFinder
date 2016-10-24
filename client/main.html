@@ -4,11 +4,12 @@
 </head>
 
 <body>
-
-  <div class="container">
-    {{> googlemaps}}
+    <div class='jumbotron'>
+      {{> googlemaps}}
+    </div>
     {{> display}}
-  </div>
+
+
 </body>
 
 
@@ -20,9 +21,11 @@
 
 <template name="googlemaps">
 <div class="container">
-  <h3>Type in a location to popular nearby instagram posts</h3>
-  <input type="text" id="my-address" class="col-md-9">
-  <button id="getCords" class="col-md-3">Find Places</button>
+  <h2>Find popular instagram locations...</h2>
+  <div class="input-area">
+    <input type="text" id="my-address" class="form-control">
+    <button id="getCords" class="btn btn-primary">Find Places</button>
+  </div>
 </div>
 </template>
 
