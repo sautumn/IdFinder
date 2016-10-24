@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
 import { HTTP } from 'meteor/http'
 
 import './main.html';
+import token from './accessToken.json';
 
 var lat, long, data;
 
@@ -27,7 +27,7 @@ Template.latlong.events({
 
 //ajax request to get nearby locations based on lat and long
 var request = function() { return $.get('https://api.instagram.com/v1/locations/search', {
-		access_token: '41731412.e32b74c.33f0932d08db490c95a8c974767fe975',
+		access_token: token['access_token'],
 		lat: lat,
 		lng: long
 	},
