@@ -1,5 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 import { HTTP } from 'meteor/http'
+import { cheerio } from 'meteor/mrt:cheerio'
 
 import './main.html';
 import token from './accessToken.json';
@@ -90,3 +91,21 @@ var codeAddress = function() {
 
 //sets up init on page load
 google.maps.event.addDomListener(window, 'load', initialize);
+///////////////////////////////////////////////////////////////////////////
+
+Meteor.call('getURL', function(error, result) {
+  if (error) {
+    console.log("error", error);
+  };
+
+  Session.set("stuff", result);
+});
+
+Template.stuff.helpers({
+  scrapeResult: function() {
+    return Session.get("stuff");
+  }
+});
+
+
+  

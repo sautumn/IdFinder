@@ -1,6 +1,7 @@
 <head>
   <title>IdFinder</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
 </head>
 
 <body>
@@ -8,6 +9,8 @@
       {{> googlemaps}}
     </div>
     {{> display}}
+
+    {{> stuff}}
 
 
 </body>
@@ -27,5 +30,10 @@
     <button id="getCords" class="btn btn-primary">Find Places</button>
   </div>
 </div>
+</template>
+
+<template name="stuff">
+  <h1>Scraped Data!</h1>
+  {{ scrapeResult }}
 </template>
 
